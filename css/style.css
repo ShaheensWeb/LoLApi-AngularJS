@@ -1,0 +1,35 @@
+.head{
+  text-align: center;
+}
+
+.head input {
+  display: block;
+  font-size: 20px;
+  width: 300px;
+}
+
+td {
+  font-size: 18px;
+}
+
+.wins {
+  color: green;
+}
+
+.losses {
+  color: red;
+}
+
+.rank {
+	color: orange;
+}
+
+.hotStreaking {
+	font-weight: bold; 
+	color: red;
+	font-size: 125%;
+}
+
+.serverOnline {
+	color: green;
+}

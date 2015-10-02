@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app = "leaderboardApp">
+    <head>
+        <title>League of Angular</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <meta name="author" content="Sghazazani">
+        <meta name="keywords" content="AngularJS, LoL, League of Legends">
+    </head>
+    <body ng-controller="challengerController">
+        <div class="container">
+            <div class="head">
+              <img src="img/lolLogo.jpg" />
+              <input type="search" ng-model="search" placeholder="Search..." style="width: 500px; margin: 0 auto; margin-bottom: 35px;">
+            </div>
+        <div>
+      </div>
+      <h1 style="text-align: center;">NA Server/Website/Store/Game status below: </h1>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr style="text-size: 24px;">
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="servStatus in ServerStatus">
+            <td>{{servStatus.name}}</td>
+            <td>{{servStatus.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1 style="text-align: center;">Top 200 Ranked players below: </h1>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr style="text-size: 24px;">
+            <th>Rank / Points</th>
+            <th>Player name</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Hot Streak</th>
+            <th>LoL Veteran</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="player in PlayersRanking | orderBy:pointPrioritization | filter:search | limitTo:200">
+            <td class="rank"> {{$index+1}} / {{player.leaguePoints}}</td>
+            <td>{{player.playerOrTeamName}}</td>
+            <td class="wins">{{player.wins}}</td>
+            <td class="losses">{{player.losses}}</td>
+            <td ng-class="{hotStreaking: player.isHotStreak}">{{player.isHotStreak}}</td>
+            <td>{{player.isVeteran}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+  </body>
+</html>
