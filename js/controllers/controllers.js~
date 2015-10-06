@@ -16,5 +16,5 @@
   	// Sort players from the heightest leaguePoints to the lowest.
 	$scope.pointPrioritization = '-leaguePoints';
 	});
-  	//wow this is dope
+  	
 })();
